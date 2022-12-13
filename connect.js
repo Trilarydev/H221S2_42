@@ -35,14 +35,15 @@ conexion.connect(function (error) {
 
 // http://localhost:3000/
 app.get('/', function(request, response) {
-	// Render login template
-	if (request.session.loggedin) {
-		// Output username
-		response.redirect('/home')
-	}
+	response.sendFile(path.join(__dirname + '/static/landing.html'));
+});
+
+// http://localhost:3000/login
+app.get('/login', function(request, response) {
 	response.sendFile(path.join(__dirname + '/static/login.html'));
 });
 
+// http://localhost:3000/api/pedido
 app.post("/api/pedido", (req, res) => {
 	let data = {
     	nomcon: req.body.NOMCON,
@@ -92,19 +93,16 @@ app.post('/auth', function(request, response) {
 	}
 });
 
-// http://localhost:3000/home
 app.get('/home', function(request, response) {
 	// If the user is loggedin
 	if (request.session.loggedin) {
 		// Output username
-		//response.send('Te has logueado satisfactoriamente:, ' + request.session.username + '!');
-		response.sendFile(path.join(__dirname + '/static/landing.html'));
+		response.send('Te has logueado satisfactoriamente:, ' + request.session.username + '!');
 	} else {
 		// Not logged in
-		//response.send('¡Inicia sesión para ver esta página!');
-		response.redirect('/')
+		response.send('¡Inicia sesión para ver esta página!');
 	}
-	//response.end();
+	response.end();
 });
 
 
