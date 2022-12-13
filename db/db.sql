@@ -39,5 +39,5 @@ create table accounts
 INSERT INTO accounts
 (username, pass)
 values
-('trilary', '123' );
+('trilary.quispe@vallegrande.edu.pe', 'vg2022');
 select*from accounts;
