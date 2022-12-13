@@ -102,7 +102,7 @@ app.get('/home', function(request, response) {
 	} else {
 		// Not logged in
 		//response.send('¡Inicia sesión para ver esta página!');
-		res.redirect('/')
+		response.redirect('/')
 	}
 	//response.end();
 });
