@@ -14,8 +14,10 @@ var opcion = 'crear';
     opcion = 'crear';
 });*/
 
+/*submint cuando le formulario se envia*/
 formArticulo.addEventListener('submit',
     (e) => {
+		/*impide que refresque*/
    	 e.preventDefault();
    	 if (opcion == 'crear') {
    		 if (NOMCON.value == "" || APECON.value == "" || CELCON.value == "" || EMACON.value == "" || MSGCON.value == "") {

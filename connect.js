@@ -63,7 +63,7 @@ app.post("/api/pedido", (req, res) => {
 	});
   });
 
-
+//end point /
 // http://localhost:3000/auth
 app.post('/auth', function(request, response) {
 	// Capture the input fields
